@@ -1,7 +1,7 @@
 .{
-    .name = .zimgui_sdl3,
+    .name = .zimgui,
     .version = "0.0.0",
-    .fingerprint = 0x46de8b47fb0848ea,
+    .fingerprint = 0x6dab3c0ce1326302,
     .minimum_zig_version = "0.15.2",
     .dependencies = .{
         .sdl = .{
