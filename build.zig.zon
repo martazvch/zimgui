@@ -10,7 +10,10 @@
         },
     },
     .paths = .{
+        ".",
         "build.zig",
         "build.zig.zon",
+        "backends",
+        "dcimgui",
     },
 }
