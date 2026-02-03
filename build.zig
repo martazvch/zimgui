@@ -23,8 +23,7 @@ pub fn build(b: *std.Build) void {
         }),
         .linkage = .static,
     });
-    imgui_lib.root_module.addIncludePath(b.path("src"));
-    imgui_lib.root_module.addIncludePath(b.path("src/dcimgui"));
+    imgui_lib.root_module.addIncludePath(b.path("dcimgui"));
 
     for (sdl_lib.root_module.include_dirs.items) |*included| {
         switch (included.*) {
@@ -54,7 +53,6 @@ pub fn build(b: *std.Build) void {
         },
     });
 
-    imgui_lib.installHeadersDirectory(b.path("src"), "src", .{});
-    imgui_lib.installHeadersDirectory(b.path("src/dcimgui"), "src/dcimgui", .{});
+    imgui_lib.installHeadersDirectory(b.path("dcimgui"), "dcimgui", .{});
     b.installArtifact(imgui_lib);
 }
