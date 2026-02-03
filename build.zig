@@ -23,9 +23,8 @@ pub fn build(b: *std.Build) void {
         }),
         .linkage = .static,
     });
-    imgui_lib.root_module.addIncludePath(b.path("."));
-    imgui_lib.root_module.addIncludePath(b.path("backends"));
-    imgui_lib.root_module.addIncludePath(b.path("dcimgui"));
+    imgui_lib.root_module.addIncludePath(b.path("src"));
+    imgui_lib.root_module.addIncludePath(b.path("src/dcimgui"));
 
     for (sdl_lib.root_module.include_dirs.items) |*included| {
         switch (included.*) {
@@ -36,16 +35,17 @@ pub fn build(b: *std.Build) void {
 
     imgui_lib.addCSourceFiles(.{
         .files = &.{
-            "imgui.cpp",
-            "imgui_demo.cpp",
-            "imgui_draw.cpp",
-            "imgui_tables.cpp",
-            "imgui_widgets.cpp",
-            "backends/imgui_impl_sdl3.cpp",
-            "backends/imgui_impl_sdlgpu3.cpp",
-            "dcimgui/dcimgui.cpp",
-            "dcimgui/dcimgui_impl_sdl3.cpp",
-            "dcimgui/dcimgui_impl_sdl3gpu.cpp",
+            "src/imgui.cpp",
+            "src/imgui_demo.cpp",
+            "src/imgui_draw.cpp",
+            "src/imgui_tables.cpp",
+            "src/imgui_widgets.cpp",
+            "src/imgui_impl_sdl3.cpp",
+            "src/imgui_impl_sdlgpu3.cpp",
+            "src/dcimgui/dcimgui.cpp",
+            "src/dcimgui/dcimgui_internal.cpp",
+            "src/dcimgui/dcimgui_impl_sdl3.cpp",
+            "src/dcimgui/dcimgui_impl_sdl3gpu.cpp",
         },
         .flags = &.{
             "-std=c++11",
@@ -54,8 +54,7 @@ pub fn build(b: *std.Build) void {
         },
     });
 
-    imgui_lib.installHeadersDirectory(b.path("."), ".", .{});
-    imgui_lib.installHeadersDirectory(b.path("backends"), "backends", .{});
-    imgui_lib.installHeadersDirectory(b.path("dcimgui"), "dcimgui", .{});
+    imgui_lib.installHeadersDirectory(b.path("src"), "src", .{});
+    imgui_lib.installHeadersDirectory(b.path("src/dcimgui"), "src/dcimgui", .{});
     b.installArtifact(imgui_lib);
 }
