@@ -33,7 +33,7 @@ pub fn build(b: *std.Build) void {
         }
     }
 
-    imgui_lib.addCSourceFiles(.{
+    imgui_lib.root_module.addCSourceFiles(.{
         .files = &.{
             "src/imgui.cpp",
             "src/imgui_demo.cpp",
