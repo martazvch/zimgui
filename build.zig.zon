@@ -2,11 +2,11 @@
     .name = .zimgui,
     .version = "0.0.0",
     .fingerprint = 0x6dab3c0ce1326302,
-    .minimum_zig_version = "0.15.2",
+    .minimum_zig_version = "0.17.0",
     .dependencies = .{
         .sdl = .{
-            .url = "https://github.com/castholm/SDL/archive/refs/tags/v0.5.0+3.4.8.tar.gz",
-            .hash = "sdl-0.5.0+3.4.8-SDL--k4DpgH323IfF6cEaGzKUdtUQv1azbBmmcv0RMAu",
+            .url = "https://github.com/castholm/SDL/archive/refs/tags/v0.6.0%2B3.4.18.tar.gz",
+            .hash = "sdl-0.6.0+3.4.18-SDL--p-gqAGWpnfTLlhs0dgjDtc4P4_CHeNLGY_SX_Fv",
         },
     },
     .paths = .{
